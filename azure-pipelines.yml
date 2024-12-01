@@ -1,25 +1,20 @@
-trigger:
-  - main
-
-pool:
-  vmImage: 'windows-latest'
-
 stages:
-  - stage: Build
-    displayName: 'Build Azure Function App'
-    jobs:
-      - job: Build
-        displayName: 'Build Function App'
-        steps:
-          - task: UseDotNet@2
-            inputs:
-              packageType: 'sdk'
-              version: '8.x' # Specify the required .NET version
-          - script: |
-              dotnet restore
-              dotnet build --configuration Release
-            displayName: 'Build the Azure Function App'
-
+- stage: Build
+  displayName: 'Build Stage'
+  jobs:
+  - job: Build
+    displayName: 'Build the Function App'
+    pool:
+      vmImage: 'windows-latest'
+    steps:
+    - task: UseDotNet@2
+      inputs:
+        packageType: 'sdk'
+        version: '8.x'
+    - script: |
+        dotnet restore
+        dotnet build --configuration Release
+      displayName: 'Build Azure Function App'
 
 
 - stage: Test
