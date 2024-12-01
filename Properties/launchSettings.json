@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "CICD_AzureFunctionApp": {
+      "commandName": "Project",
+      "commandLineArgs": "--port 7260",
+      "launchBrowser": false
+    }
+  }
+}
