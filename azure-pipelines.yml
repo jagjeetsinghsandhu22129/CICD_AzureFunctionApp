@@ -30,17 +30,17 @@ stages:
       displayName: 'Run Tests'
 
 
-# - stage: Deploy
-#   displayName: 'Deploy to Azure'
-#   jobs:
-#   - job: Deploy
-#     displayName: 'Deploy Function to Azure'
-#     pool:
-#       vmImage: 'windows-latest'
-#     steps:
-#     - task: AzureFunctionApp@1
-#       inputs:
-#         azureSubscription: '<Azure for Students>'
-#         appType: 'functionApp'
-#         appName: '<AzureFunctionApp>'
-#         package: '$(System.DefaultWorkingDirectory)/**/*.zip'
+- stage: Deploy
+  displayName: 'Deploy to Azure'
+  jobs:
+  - job: Deploy
+    displayName: 'Deploy Function to Azure'
+    pool:
+      vmImage: 'windows-latest'
+    steps:
+    - task: AzureFunctionApp@1
+      inputs:
+        azureSubscription: '<Azure for Students>'
+        appType: 'functionApp'
+        appName: '<AzureFunctionApp>'
+        package: '$(System.DefaultWorkingDirectory)/**/*.zip'
